@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test release
-        uses: actions/action@v1
+        uses: actions/create-release@v1
         with:
           releaseName: 'Github action test'
         env:
