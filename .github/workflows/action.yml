@@ -1,4 +1,4 @@
-name: Test this action locally with act
+name: OMGTest this action locally with act
 on: push
 jobs:
   test-release:
