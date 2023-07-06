@@ -1,4 +1,4 @@
-name: OMGTest this action locally with act
+name: docker-compose-actions-workflow
 on: 
   push:
     branches:
@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test release
-        uses: actions/instana-github-actions
+        uses: actions/create-release@v1
         with:
           releaseName: 'Github action test'
         env:
