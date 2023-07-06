@@ -1,1 +1,16 @@
-
+{
+    "applications": [
+      { "name": "All Services" }
+    ],
+    "services": [
+      { "name": "Oscar's Cool service #1" },
+      {
+        "name": "Oscar's Cool service #2",
+        "scopedTo": {
+          "applications": [
+            { "name": "My Cool App" }
+          ]
+        }
+      }
+    ]
+  }
