@@ -11,6 +11,3 @@ jobs:
         uses: actions/create-release@v1
         with:
           releaseName: 'Github action test'
-        env:
-          INSTANA_BASE: ${{ secrets.INSTANA_BASE }}
-          INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
