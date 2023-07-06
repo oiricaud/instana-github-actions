@@ -1,0 +1,6 @@
+{
+  "action": "oscar_workflow_dispatch",
+  "inputs": {
+    "version": "1.2.3"
+  }
+}

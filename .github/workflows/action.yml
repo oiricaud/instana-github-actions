@@ -1,11 +1,14 @@
 name: OMGTest this action locally with act
-on: push
+on: 
+  push:
+    branches:
+      - 'main'
 jobs:
   test-release:
     runs-on: ubuntu-latest
     steps:
       - name: Test release
-        uses: actions/checkout@v2
+        uses: ./workflows/create-release
         with:
           releaseName: 'Github action test'
         env:
