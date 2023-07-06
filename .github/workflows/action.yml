@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test release
-        uses: ./
+        uses: ./workflows
         with:
           releaseName: 'Github action test'
         env:
