@@ -3,14 +3,6 @@
       { "name": "All Services" }
     ],
     "services": [
-      { "name": "zabbix-06-PHP" },
-      {
-        "name": "Oscar's Cool service #2",
-        "scopedTo": {
-          "applications": [
-            { "name": "My Cool App" }
-          ]
-        }
-      }
+      { "name": "zabbix-06-PHP" }
     ]
-  }
+}
