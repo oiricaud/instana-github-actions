@@ -36,6 +36,18 @@ jobs:
       uses: taimos/github-action-instana-release@v4
       with:
         releaseName: 'Deployed version 42'
+        releaseScope: >
+          {
+            "services": [
+              {
+                "name": "spring-webflux",
+                "scopedTo": {
+                  "applications": [{ "name": "All Services" }]
+                }
+              },
+              { "name": "spring-boot" }
+            ]
+          }       
       env:
         INSTANA_BASE: ${{ secrets.INSTANA_BASE }}
         INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
