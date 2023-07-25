@@ -14,18 +14,23 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: taimos/github-action-instana-release@%%version%%
-        with:
-          releaseName: 'Deployed version 42'
-          releaseScope: >
-            {
-              "applications": [
-                { "name": "All Services" }
-              ],
-              "services": [
-                { "name": "zabbix-06-PHP" }
-              ]
-            }
-        env:
-          INSTANA_BASE: ${{ secrets.INSTANA_BASE }}
-          INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
+      uses: taimos/github-action-instana-release@%%version%%
+      - name: Build the stack
+        run: docker-compose build
+
+
+# uses: taimos/github-action-instana-release@%%version%%
+# with:
+#   releaseName: 'Deployed version 42'
+#   releaseScope: >
+#     {
+#       "applications": [
+#         { "name": "All Services" }
+#       ],
+#       "services": [
+#         { "name": "zabbix-06-PHP" }
+#       ]
+#     }
+# env:
+#   INSTANA_BASE: ${{ secrets.INSTANA_BASE }}
+#   INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
