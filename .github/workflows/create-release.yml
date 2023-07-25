@@ -40,12 +40,11 @@ jobs:
           {
             "services": [
               {
-                "name": "spring-webflux",
+                "name": "node-cart",
                 "scopedTo": {
                   "applications": [{ "name": "All Services" }]
                 }
               },
-              { "name": "spring-boot" }
             ]
           }       
       env:
