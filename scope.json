@@ -1,8 +1,0 @@
-{
-    "applications": [
-      { "name": "All Services" }
-    ],
-    "services": [
-      { "name": "zabbix-06-PHP" }
-    ]
-}
