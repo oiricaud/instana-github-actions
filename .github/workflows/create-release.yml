@@ -20,7 +20,7 @@ jobs:
     - name: Create and push release commit and tag
       uses: EndBug/add-and-commit@v7
       with:
-        commit_message: "Version ${{ github.event.inputs.version }}"
+        #commit_message: "Version ${{ github.event.inputs.version }}"
         message: "Update version to ${{ github.event.inputs.version }}"
         tag: ${{ github.event.inputs.version }}
         push: origin ${{ github.event.inputs.version }}
