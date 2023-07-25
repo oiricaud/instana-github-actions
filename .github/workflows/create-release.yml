@@ -35,15 +35,15 @@ jobs:
     - name: Notify instana on release
       uses: taimos/github-action-instana-release@v4
       with:
-        releaseName: 'Deployed version 42'
+        releaseName: 'Deployed version 43'
         releaseScope: >
           {
-            "services": [
+            "applications": [
               {
-                "name": "node-cart",
-                "scopedTo": {
-                  "applications": [{ "name": "All Services" }]
-                }
+                "name": "All Services",
+                "services": [
+                  { "name": "zabbix-06-PHP" }
+                ]
               }
             ]
           }       
