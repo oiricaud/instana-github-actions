@@ -34,8 +34,11 @@ jobs:
         tag_name: ${{ github.event.inputs.version }}
     - name: Notify instana on release
       uses: taimos/github-action-instana-release@v4
+      env:
+        INSTANA_BASE: ${{ secrets.INSTANA_BASE }}
+        INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
       with:
-        releaseName: Deployed version 43
+        releaseName: Deployed version ${{ github.event.inputs.version }}
         releaseScope: >
           {
             "applications": [
@@ -46,7 +49,4 @@ jobs:
                 ]
               }
             ]
-          }       
-      env:
-        INSTANA_BASE: ${{ secrets.INSTANA_BASE }}
-        INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
+          }
