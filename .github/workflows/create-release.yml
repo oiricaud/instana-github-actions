@@ -33,7 +33,7 @@ jobs:
         release_name: Release ${{ github.event.inputs.version }}
         tag_name: ${{ github.event.inputs.version }}
     - name: Notify instana on release
-      uses: taimos/github-action-instana-release
+      uses: taimos/github-action-instana-release@latest
       with:
         releaseName: 'Deployed version 42'
       env:
