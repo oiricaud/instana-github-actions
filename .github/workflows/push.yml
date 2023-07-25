@@ -1,19 +1,15 @@
-name: docker-compose-actions-workflow
-on:
-  push:
-    branches:
-      - 'main'
-    paths-ignore:
-      - 'DCOS/**'
-      - 'K8s/**'
-      - 'load-gen/**'
-      - 'OpenShift/**'
-      - 'Swarm/**'
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Build the stack
-        run: docker-compose build
+uses: taimos/github-action-instana-release@%%version%%
+with:
+  releaseName: 'Deployed version 42'
+  releaseScope: >
+    {
+      "applications": [
+        { "name": "All Services" }
+      ],
+      "services": [
+        { "name": "zabbix-06-PHP" }
+      ]
+    }
+env:
+  INSTANA_BASE: ${{ secrets.INSTANA_BASE }}
+  INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
