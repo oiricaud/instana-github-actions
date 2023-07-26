@@ -1,11 +1,14 @@
-name: Release new version
-
+name: docker-compose-actions-workflow
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version to be used for the new release'
-        required: true
+  push:
+    branches:
+      - 'main'
+    paths-ignore:
+      - 'DCOS/**'
+      - 'K8s/**'
+      - 'load-gen/**'
+      - 'OpenShift/**'
+      - 'Swarm/**'
 
 jobs:
   release:
