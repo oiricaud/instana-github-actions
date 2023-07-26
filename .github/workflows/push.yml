@@ -1,36 +1,31 @@
-name: docker-compose-actions-workflow
+name: Release new version
+
 on:
-  push:
-    branches:
-      - 'main'
-    paths-ignore:
-      - 'DCOS/**'
-      - 'K8s/**'
-      - 'load-gen/**'
-      - 'OpenShift/**'
-      - 'Swarm/**'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to be used for the new release'
+        required: true
 
 jobs:
-  test:
+  release:
     runs-on: ubuntu-latest
     steps:
-      uses: taimos/github-action-instana-release@%%version%%
-      - name: Build the stack
-        run: docker-compose build
-
-
-# uses: taimos/github-action-instana-release@%%version%%
-# with:
-#   releaseName: 'Deployed version 42'
-#   releaseScope: >
-#     {
-#       "applications": [
-#         { "name": "All Services" }
-#       ],
-#       "services": [
-#         { "name": "zabbix-06-PHP" }
-#       ]
-#     }
-# env:
-#   INSTANA_BASE: ${{ secrets.INSTANA_BASE }}
-#   INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
+    - name: Notify instana on release
+      uses: taimos/github-action-instana-release@v4
+      env:
+        INSTANA_BASE: ${{ secrets.INSTANA_BASE }}
+        INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
+      with:
+        releaseName: Commit ${{ github.event.head_commit.message }}
+        releaseScope: >
+          {
+            "applications": [
+              {
+                "name": "All Services",
+                "services": [
+                  { "name": "zabbix-06-PHP" }
+                ]
+              }
+            ]
+          }
