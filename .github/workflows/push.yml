@@ -15,12 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Notify instana on commit
-      uses: taimos/github-action-instana-push@v4
+      uses: taimos/github-action-instana-release@v4
       env:
         INSTANA_BASE: ${{ secrets.INSTANA_BASE }}
         INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
       with:
-        releaseName: ${{ github.head_ref }} ${{ github.event.head_commit.message }}
+        releaseName: repo oiricaud/instana-github-actions/ has a new commit with following message ${{ github.event.head_commit.message }}
         releaseScope: >
           {
             "applications": [
