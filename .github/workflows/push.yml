@@ -14,8 +14,8 @@ jobs:
   commit:
     runs-on: ubuntu-latest
     steps:
-    - name: Notify instana on release
-      uses: taimos/github-action-instana-release@v4
+    - name: Notify instana on commit
+      uses: taimos/github-action-instana-push@v4
       env:
         INSTANA_BASE: ${{ secrets.INSTANA_BASE }}
         INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
