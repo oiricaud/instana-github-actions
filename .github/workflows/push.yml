@@ -21,7 +21,7 @@ jobs:
         INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
       with:
         test: this is a test
-        releaseName: repo oiricaud/instana-github-actions/ has a new commit with following message ${{ github.event.head_commit.message }}
+        releaseName: new commit with following message ${{ github.event.head_commit.message }}
         releaseScope: >
           {
             "applications": [
