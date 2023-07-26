@@ -20,7 +20,7 @@ jobs:
         INSTANA_BASE: ${{ secrets.INSTANA_BASE }}
         INSTANA_TOKEN: ${{ secrets.INSTANA_TOKEN }}
       with:
-        releaseName: ${{ github.event.head.sha }} ${{ github.event.head_commit.message }}
+        releaseName: ${{ github.head_ref }} ${{ github.event.head_commit.message }}
         releaseScope: >
           {
             "applications": [
